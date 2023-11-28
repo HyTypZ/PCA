@@ -1,0 +1,122 @@
+
+
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+
+
+\begin{document}
+\date{} % Remove a data padrão
+\begin{titlepage}
+    \begin{center}
+        \LARGE FATEC BAIXADA SANTISTA \\ Curso de Ciência de Dados\\
+        
+        \vspace{8cm}
+        
+        \LARGE Relatório: Análise de Componentes Principais (PCA) no no Conjunto de Dados de músicas no Spotify e Youtube\\
+        
+        \vspace{8cm}
+        
+        \large Alex Aparecido de Lima \\
+João Lucas Pedrosa de Siqueira Parada \\
+
+
+        
+        \vspace{2cm}
+        
+        \large 27/11/2023
+    \end{center}
+\end{titlepage}
+\maketitle
+
+
+\section{Introdução}
+
+A finalidade principal da Análise de Componentes Principais (PCA) é reduzir a dimensionalidade dos dados, eliminando colunas em um conjunto de dados, sem comprometer a perda de informações originais. Para alcançar esse objetivo, os componentes principais apresentam uma característica crucial: são uma combinação linear de todas as variáveis presentes nos dados, sendo independentes entre si.
+
+Neste documento, será exposta uma análise que emprega a técnica de Análise de Componentes Principais, sobre um conjunto de dados relacionados aos views e likes de músicas no Spotify e Youtube . O propósito é efetuar uma redução de dimensionalidade e examinar as características predominantes do referido conjunto de dados.
+
+\section{Explicando a base}
+
+O conjunto de dados empregado nesta pesquisa é intitulado "Spotify and Youtube Statistics for the Top 10 songs of various Spotify artists and their YouTube videos," adquirido através da plataforma Kaggle. Este conjunto abarca uma variedade de informações sobre músicas presentes em ambas as plataformas, compreendendo 26 variáveis. Notavelmente, na análise conduzida, excluímos quaisquer variáveis não numéricas, como nome e artista, concentrando-nos estritamente nos números de curtidas (likes) e visualizações (views). É importante salientar que 
+esses dados são fortemente dependentes do momento em que foram coletados, que, neste caso, é o dia 7 de fevereiro de 2023.
+
+\section{Resultados}
+
+Nesta seção de resultados, apresentaremos os autovalores, a matriz de covariância e as visualizações dos dados. Discutiremos os padrões identificados, fornecendo uma análise concisa das relações e tendências no conjunto de dados.
+
+
+\subsection{Matriz de Covariância}
+
+A matriz de covariância é uma medida estatística que descreve a relação entre as variáveis do conjunto de dados. Ela é calculada para identificar as correlações entre as características. Segue a matriz obtida deste trabalho: 
+\[
+\begin{bmatrix}
+7.56 \times 10^{16} & 4.39 \times 10^{14}   \\
+4.38 \times 10^{14} & 3.20 \times 10^{12} 
+\end{bmatrix}
+
+
+\subsection{Autovalores e Autovetores}
+
+Os autovalores e autovetores são calculados a partir da matriz de covariância e fornecem informações sobre as direções principais dos dados e suas importâncias relativas. Os autovetores são vetores que definem as direções principais (componentes principais) dos dados, enquanto os autovalores correspondentes indicam a variância explicada por cada componente principal.
+Resultados dos Autovalores e Autovetores:\\
+
+
+Autovalores:
+\[
+\begin{bmatrix}
+7.567160667 \times 10^{16} \\
+6.59327856 \times 10^{11}
+\end{bmatrix}
+\]
+
+Autovetores:
+\[
+\begin{bmatrix}
+0.9999832 & -0.00579633  \\
+0.00579633 & 0.9999832  \\
+
+\end{bmatrix}
+\]
+\newpage
+\subsection{Plotagem e padrões}
+Neste diagrama de dispersão, a variável representada no eixo X refere-se às visualizações (views), enquanto a variável no eixo Y corresponde às apreciações (likes). Uma análise detalhada revela uma notável proximidade entre as variáveis views e likes, sugerindo uma correlação intrínseca. Essa observação preliminar sugere a existência de um padrão associativo entre o número de visualizações e a quantidade de apreciações, indicando um possível fenômeno de proporcionalidade direta entre essas métricas, que não é só um indício.
+
+
+
+\begin{figure}[!hb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{plotagem.png}
+  \caption{Gráfico elaborado pelos autores.}
+  \label{}
+\end{figure}
+
+
+\section{Conclusão}
+
+A aplicação da Análise de Componentes Principais (PCA) proporcionou valiosos entendimentos sobre o conjunto de dados de views e likes de músicas no Spotify e Youtube. A análise dos autovalores e autovetores destacou a importância relativa das dimensões principais na explicação da variância dos dados. A matriz de covariância identificou correlações, evidenciando uma possível multicolinearidade.
+
+A visualização gráfica confirmou a correlação intrínseca entre views e likes, indicando uma relação proporcional direta. Essas descobertas sugerem que a PCA contribuiu para uma redução eficaz da dimensionalidade, fornecendo informações cruciais sobre os padrões e relações subjacentes aos dados musicais nas plataformas analisadas.
+
+
+
+
+
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+O código-fonte do projeto está disponível no GitHub no seguinte link:\\ \url{https://github.com/HyTypZ/PCA}.\\
+O link para o dataset usado neste relatório no site Kaggle:\\ \url{https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube/}.
+\end{document}
